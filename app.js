@@ -10,12 +10,14 @@ port = process.env.PORT || 4010;
 app.use(cors());                                    
 app.use(express.static(__dirname + '/public'));  
 
+
+
 app.use(express.urlencoded({ extended: false }))    
 app.use(express.json())                            
 
 
-// app.use('/api/users', require('./routers/routerUsers'));        //User routers
-// app.use('/api/entries', require('./routers/routerEntries'));    //Entries routers
+// app.use('/api/users', require('./routers/routerUsers'));        
+app.use('/api/entries', require('./router/backrouter'));   
 
 
 
