@@ -11,10 +11,10 @@ const {
     searchArticulo
 } = require("../controllers/autorArticulos")
 
-router.get("/entries/:author/:limit/:skip", getArticuloAutor)
+router.get("/articles/:author/:limit/:skip", getArticuloAutor)
 
 
-router.get("/all-entries/:limit/:skip", getArticulos)
+router.get("/allArticles/:limit/:skip", getArticulos)
 
 
 router.get("/entry/:title/:author", getArticulo)

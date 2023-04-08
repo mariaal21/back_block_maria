@@ -11,13 +11,15 @@ const {
 const getArticuloAutor = async (req, res) => {
     let { author, limit, skip } = req.params
     try {
-        const entries = await getAutorArticulos(author, limit, skip)
-        if (entries.length == 0) {
+        console.log(articles)
+        console.log("hola")
+        const articles = await getAutorArticulos(author, limit, skip)
+        if (articles.length == 0) {
             return res.status(404).json({ ok: false, msg: "No hay nada" })
         } else {
             return res.status(200).json({
                 ok: true,
-                entries
+                articles
             })
         }
     } catch (error) {
@@ -28,13 +30,15 @@ const getArticuloAutor = async (req, res) => {
 const getArticulos = async (req, res) => {
     let { limit, skip } = req.params
     try {
-        const entries = await getTodosArticulos(limit, skip)
-        if (entries.length == 0) {
+        console.log(articles)
+        console.log("hola")
+        const articles = await getTodosArticulos(limit, skip)
+        if (articles.length == 0) {
             return res.status(404).json({ ok: false, msg: "No hay nada" })
         } else {
             return res.status(200).json({
                 ok: true,
-                entries
+                articles
             })
         }
     } catch (error) {
@@ -89,10 +93,10 @@ const deleteArticulo = async (req, res) => {
 const searchArticulo = async (req, res) => {
     const { search, limit, skip } = req.params
     try {
-        const entries = await buscarArticulo(search, limit, skip)
-        if (entries.length == 0) { res.status(404).json({ ok: false, msg: "No hay nada" }) }
+        const articles = await buscarArticulo(search, limit, skip)
+        if (articles.length == 0) { res.status(404).json({ ok: false, msg: "No hay nada" }) }
         else {
-            res.status(200).json({ ok: true, entries })
+            res.status(200).json({ ok: true, articles })
         }
     } catch (error) {
         res.status(500).json({ ok: false, msg: "Error" })
