@@ -20,13 +20,13 @@ router.get("/allArticles/:limit/:skip", getArticulos)
 router.get("/entry/:title/:author", getArticulo)
 
 
-router.post("/create/:author", createArticulo)
+router.post("/nuevo/:author", createArticulo)
 
 
-router.put("/update/:title/:author", updateArticulo)
+router.put("/actualizar/:title/:author", updateArticulo)
 
 
-router.delete("/delete", deleteArticulo)
+router.delete("/eliminar", deleteArticulo)
 
 
 router.get("/search/:search/:limit/:skip", searchArticulo)
